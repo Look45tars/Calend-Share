@@ -29,11 +29,13 @@ function App() {
     <div className='h-screen w-screen'>
       <div className='size-full mx-auto' style={mainGridStyle}>
         
-        {/* Top bar */}
         <h1 className="h-16 bg-red-50 flex">
           <img src={logo} className='my-auto ml-10 h-16 mr-auto font-bold'/>
           <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
             Sign Up / Log In
+          </button>
+          <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
+            Options
           </button>
         </h1>
         
