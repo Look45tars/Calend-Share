@@ -73,7 +73,6 @@ function Calendar() {
 
   return (
     <div className="size-full bg-red-100 p-2">
-      <p>{JSON.stringify(dateContext.date)}</p>
       <p className="text-xl font-medium">Personal Calendar</p>
       <div className='grid grid-cols-3 w-96 place-items-center mx-auto'>
         <div onClick={prevMonth} className='cursor-pointer bg-red-200 p-2'>Prev</div>
