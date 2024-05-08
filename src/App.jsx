@@ -4,8 +4,11 @@ import Calendar from './Calendar'
 import Events from './Events'
 import Notes from './Notes'
 
+import DateContext from './DateContext'
+
 function App() { 
   const [count, setCount] = useState(0)
+  const [date, setDate] = useState(new Date())
 
   const mainGridStyle = {
     display: 'grid',
@@ -24,30 +27,31 @@ function App() {
     gap: '1rem',
   }
 
-
   return (
-    <div className='h-screen w-screen'>
-      <div className='size-full mx-auto' style={mainGridStyle}>
-        
-        <h1 className="h-16 bg-red-50 flex">
-          <img src={logo} className='my-auto ml-10 h-16 mr-auto font-bold'/>
-          <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
-            Sign Up / Log In
-          </button>
-          <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
-            Options
-          </button>
-        </h1>
-        
-        <div className='p-4 h-full' style={bodyGridStyle}>
-          <div style={leftGridStyle}>
-            <Calendar />
-            <Notes />
+    <DateContext.Provider value={{date, setDate}}>
+      <div className='h-screen w-screen'>
+        <div className='size-full mx-auto' style={mainGridStyle}>
+          
+          <h1 className="h-16 bg-red-50 flex">
+            <img src={logo} className='my-auto ml-10 h-16 mr-auto font-bold'/>
+            <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
+              Sign Up / Log In
+            </button>
+            <button className='mr-10 h-10 bg-red-200 px-2 my-auto'> 
+              Options
+            </button>
+          </h1>
+          
+          <div className='p-2 h-full' style={bodyGridStyle}>
+            <div style={leftGridStyle}>
+              <Calendar />
+              <Notes />
+            </div>
+            <Events />
           </div>
-          <Events />
         </div>
       </div>
-    </div>
+    </DateContext.Provider>
   )
 }
 
