@@ -1,7 +1,7 @@
 import { useState, useMemo, useContext } from 'react'
 import Event from './Event'
 import DateContext from './DateContext'
-const { DateTime } = require("luxon");
+import { DateTime } from "luxon";
 
 //Creates and sets the events
 function Events() { 
@@ -15,11 +15,9 @@ function Events() {
 
   const dateContext = useContext(DateContext)
 
+  //Checks to see if the event date is in future or current
   function dateGEQ(date1, date2) {
-    // DO SOME DATE COMPARISON MUMBO JUMBO
-    // THIS IS STUPID AND SHOULD BE REPLACED WITH A LIBRARY (TRUEEE)
-
-    return true
+    return date1.toDateString() == date2.toDateString() || date1 >= date2;
   }
 
   //Filters upcoming events
@@ -28,7 +26,7 @@ function Events() {
   }, [events, dateContext.date])
 
   return (
-    //Displays Events
+    //Displays future events
     <div className="size-full bg-red-100 p-2">
       <p className="text-xl font-medium">Upcoming Events</p>
       <div className='grid grid-auto-row gap-2 pt-2'>

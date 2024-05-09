@@ -5,7 +5,7 @@ function Event({event}) {
   
   return (
     <div className="size-full bg-red-200 p-2">
-      <h1 className="text-md">{title}: {date}</h1>
+      <h1 className="text-md">{title}: {new Date(date).toDateString()}</h1>
       <h1 className="text-sm">{data}</h1>
     </div>
   )
